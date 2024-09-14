@@ -1,0 +1,62 @@
+# 数据集配置
+DATASET:
+  TRAIN:
+    NAME: "DatasetName"
+    ARGS: {}
+    PREPROCESSOR: 
+      NAME: "PreprocessorName"
+      ARGS: {}
+    TRANSFORMS: []
+  TEST:
+    NAME: "DatasetName"
+    ARGS: {}
+    PREPROCESSOR: 
+      NAME: "PreprocessorName"
+      ARGS: {}
+    TRANSFORMS: []
+
+# 模型配置
+MODEL:
+  NAME: "ModelName"
+  ARGS: {}
+
+# 损失函数
+LOSS:
+  NAME: "LossName"
+  ARGS: {}
+
+# 优化器
+OPTIMIZER:
+  NAME: "OptimizerName"
+  ARGS: {}
+  
+# 学习率调度器
+SCHEDULER:
+  NAME: "SchedulerName"
+  ARGS: {}
+
+# 后处理
+POSTPROCESSOR:
+  NAME: "PostprocessorName"
+  ARGS: {}
+
+# 评估指标
+# TODO: 大概率有多指标
+METRIC:
+  NAME: "MetricName"
+  ARGS: {}
+
+# 超参数，这个除开一般的超参数，其它的自定义吧，在trainer中使用
+HYPER_PARAMETERS:
+  TRAIN:
+    EPOCHS: 100
+    BATCH_SIZE: 32
+    SHUFFLE: True
+  TEST:
+    BATCH_SIZE: 1
+    SHUFFLE: False
+    TEST_EPOCHS: 1
+  DEVICE: "cuda"
+  CHECKPOINT_DIR: "checkpoints/"
+  SUMMARY_DIR: "summary/"
+

@@ -1,0 +1,49 @@
+import os
+import sys
+import unittest
+
+
+sys.dont_write_bytecode = True
+
+MODULE_DIR = os.environ.get('MODULE_DIR', None)
+if MODULE_DIR is not None:
+    sys.path = [MODULE_DIR] + sys.path
+else:
+    raise ValueError("MODULE_DIR environment variable not set!")
+
+
+class TestBaseScheduler(unittest.TestCase):
+    def test_build_by_config(self):
+        import torch
+        from module_name.scheduler import SCHEDULER_BUILDER
+        from module_name.optimizer import OPTIMIZER_BUILDER
+
+        model = torch.nn.Linear(10, 10)
+        optimizer = OPTIMIZER_BUILDER.build("SGD", params=model.parameters())
+
+        config = {
+            "name": "BaseScheduler",
+            "args": {
+                "optimizer": optimizer,
+            }
+        }
+        name = config["name"]
+        args = config["args"]
+        scheduler = SCHEDULER_BUILDER.build(name, **args)
+
+        from module_name.scheduler.base import BaseScheduler
+        self.assertIsInstance(scheduler, BaseScheduler)
+        self.assertRaises(Exception, scheduler.step)
+    
+    def test_build(self):
+        import torch
+        from module_name.scheduler.base import BaseScheduler
+
+        optimizer = torch.optim.SGD(torch.nn.Linear(10, 10).parameters(), lr=0.1)
+        scheduler = BaseScheduler(optimizer)
+        self.assertIsInstance(scheduler, BaseScheduler)
+        self.assertRaises(Exception, scheduler.step)
+    
+
+if __name__ == "__main__":
+    unittest.main()
