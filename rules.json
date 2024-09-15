@@ -1,0 +1,73 @@
+{
+    "ignore_files": [
+        ".git/",
+        ".DS_Store",
+        ".idea/",
+        ".vscode/",
+        "venv/",
+        "env/",
+        "build/",
+        "dist/",
+        "*.egg-info/",
+        "template.json"
+    ],
+    "rules": [
+        {
+            "value_name": "module_name"
+        },
+        {
+            "value_name": "dataset_name"
+        },
+        {
+            "value_name": "DatasetName"
+        },
+        {
+            "value_name": "preprocessor_name"
+        },
+        {
+            "value_name": "PreprocessorName"
+        },
+        {
+            "value_name": "transform_name"
+        },
+        {
+            "value_name": "TransformName"
+        },
+        {
+            "value_name": "model_name"
+        },
+        {
+            "value_name": "ModelName"
+        },
+        {
+            "value_name": "loss_name"
+        },
+        {
+            "value_name": "LossName"
+        },
+        {
+            "value_name": "optimizer_name"
+        },
+        {
+            "value_name": "OptimizerName"
+        },
+        {
+            "value_name": "scheduler_name"
+        },
+        {
+            "value_name": "SchedulerName"
+        },
+        {
+            "value_name": "postprocessor_name"
+        },
+        {
+            "value_name": "PostprocessorName"
+        },
+        {
+            "value_name": "metric_name"
+        },
+        {
+            "value_name": "MetricName"
+        }
+    ]
+}
